@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   get "/", to: "main#index"
 
+  post "/login", to: "authentication#login"
+  get "/logout", to: "authentication#logout"
+
   get "/users", to: "user#index"
   get "/users/:id", to: "user#show"
   post "/users", to: "user#create"
