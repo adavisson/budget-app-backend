@@ -15,12 +15,15 @@ ActiveRecord::Schema.define(version: 2022_01_02_213214) do
   create_table "bills", force: :cascade do |t|
     t.string "name"
     t.decimal "amount"
+    t.integer "budget_id"
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "budgets", force: :cascade do |t|
     t.decimal "income"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
