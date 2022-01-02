@@ -16,7 +16,7 @@ class UserController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    render json: @user, include: ["budget"]
+    render json: @user, include: ["budget", "categories"]
   end
 
   def user_params
