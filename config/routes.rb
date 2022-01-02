@@ -17,4 +17,12 @@ Rails.application.routes.draw do
   # Budget routes
   get "/budgets/:id", to: "budget#show"
   post "/budgets/", to: "budget#create"
+
+  # Bill routes
+  get "/bills/:id", to: "bill#show"
+  post "/bills", to: "bill#create"
+
+  # Category routes
+  get "/categories/:id", to: "category#show"
+  post "/categories", to: "category#create"
 end
