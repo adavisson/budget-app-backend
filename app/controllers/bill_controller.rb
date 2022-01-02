@@ -1,8 +1,13 @@
 class BillController < ApplicationController
   def index
-    @bills = Bill.find_by(budget_id: params["budget_id"])
+    @bills = Bill.where(budget_id: params["budget_id"])
 
     render json: @bills, include: ["category"]
+  end
+
+  def show
+    @bill = Bill.find(params[:id])
+    render json: @bill, indclude: ["category"]
   end
 
   def create
@@ -11,6 +16,7 @@ class BillController < ApplicationController
       render json: @bill, include: ["category"]
     else
       render :json => "failed to create bill", status: 400
+    end
   end
 
   def bill_params
