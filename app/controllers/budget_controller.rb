@@ -11,7 +11,7 @@ class BudgetController < ApplicationController
   def show
     @budget = Budget.find(params[:id])
     
-    render json: @budget, include: ["bills"]
+    render json: @budget, include: ["bills", "categories"]
   end
 
   def budget_params
