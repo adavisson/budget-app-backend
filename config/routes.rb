@@ -5,10 +5,16 @@ Rails.application.routes.draw do
 
   get "/", to: "main#index"
 
+  # Authentication
   post "/login", to: "authentication#login"
   get "/logout", to: "authentication#logout"
 
+  # User routes
   get "/users", to: "user#index"
   get "/users/:id", to: "user#show"
   post "/users", to: "user#create"
+
+  # Budget routes
+  get "/budgets/:id", to: "budget#show"
+  post "/budgets/", to: "budget#create"
 end
