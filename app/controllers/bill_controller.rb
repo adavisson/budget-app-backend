@@ -1,10 +1,4 @@
 class BillController < ApplicationController
-  def index
-    @bills = Bill.where(budget_id: params["budget_id"])
-
-    render json: @bills, include: ["category"]
-  end
-
   def show
     @bill = Bill.find(params[:id])
     render json: @bill, indclude: ["category"]
