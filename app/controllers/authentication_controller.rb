@@ -1,11 +1,12 @@
 class AuthenticationController < ApplicationController
+  include AuthenticationHelper
+
   def login
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      render :json => "Successfully logged in", status: 200
+      render json: {token: token(@user.id), user_id: @user.id}
     else
-      render :json => "Login Failure", status: 400
+      render json: "Sorry, incorrect username or password", status: 400
     end
   end
 
