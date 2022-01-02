@@ -2,7 +2,7 @@ class BudgetController < ApplicationController
   def create
     @budget = Budget.new(budget_params)
     if @budget.save
-      render :json => "success"
+      render json: @budget
     else
       render :json => "failed to create budget", status: 400
     end
