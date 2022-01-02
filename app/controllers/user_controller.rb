@@ -9,14 +9,14 @@ class UserController < ApplicationController
     if @user.save
       render :json => "success"
     else
-      render :json => "failed to create user"
+      render :json => "failed to create user", status: 400
     end
   end
 
   def show
     @user = User.find(params[:id])
 
-    render :json => @user
+    render json: @user, include: ["budget"]
   end
 
   def user_params
