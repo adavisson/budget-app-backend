@@ -13,6 +13,12 @@ class UserController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+
+    render :json => @user
+  end
+
   def user_params
     params.permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
