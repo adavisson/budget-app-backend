@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get "/logout", to: "authentication#logout"
 
   # User routes
-  get "/users", to: "user#index"
   get "/users/:id", to: "user#show"
   post "/users", to: "user#create"
 
