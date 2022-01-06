@@ -1,4 +1,8 @@
 class BillController < ApplicationController
+  include AuthenticationHelper
+
+  before_action :require_login
+
   def show
     @bill = Bill.find(params[:id])
     render json: @bill, indclude: ["category"]

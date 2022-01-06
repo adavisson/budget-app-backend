@@ -14,6 +14,7 @@ module AuthenticationHelper
 
   def current_user
     begin
+      puts request.headers["Authorization"]
       token = request.headers["Authorization"]
       decoded_array = JWT.decode(token, hmac_secret, true, { algorithm: 'HS256' })
       payload = decoded_array.first

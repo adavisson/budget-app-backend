@@ -1,4 +1,8 @@
 class BudgetController < ApplicationController
+  include AuthenticationHelper
+
+  before_action :require_login
+
   def create
     @budget = Budget.new(budget_params)
     if @budget.save
