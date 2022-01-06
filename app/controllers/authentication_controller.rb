@@ -9,8 +9,4 @@ class AuthenticationController < ApplicationController
       render json: "Sorry, incorrect username or password", status: 400
     end
   end
-
-  def logout
-    session.delete :user_id
-  end
 end
