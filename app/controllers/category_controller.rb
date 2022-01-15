@@ -19,6 +19,6 @@ class CategoryController < ApplicationController
   end
 
   def category_params
-    params.permit(:name, :color)
+    params.permit(:user_id, :name, :color)
   end
 end
